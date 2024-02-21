@@ -10,10 +10,13 @@
 @media (prefers-reduced-motion: no-preference) {
   .App-logo,
   .App-link {
-    animation: App-logo-spin infinite 0.3s linear;
+    animation: App-logo-spin infinite 0.8s reverse;
   }
   .App-link {
-    animation: App-logo-spin infinite 1.6s linear;
+    animation: App-logo-spin infinite 30s linear;
+  }
+  h1 {
+    animation: App-logo-spin infinite 6s linear;
   }
 }
 
@@ -37,6 +40,6 @@
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(180deg);
+    transform: rotate(360deg);
   }
 }
