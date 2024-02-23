@@ -4,7 +4,7 @@ import Button from "./components/Button"
 import Counter from "./components/Counter"
 
 function App() {
-  console.log('app rendered')
+  console.log("app rendered")
   const [count, setCount] = useState(0)
   const incR = () => {
     setCount(count + 1)
