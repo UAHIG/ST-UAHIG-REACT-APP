@@ -9,7 +9,7 @@ function Posts() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
+    fetch("https://jsonplaceholder.typicode.com/photos")
       .then((res) => res.json())
       .then((posts) => setPosts(posts))
       .catch((error) => setError(error.message))
