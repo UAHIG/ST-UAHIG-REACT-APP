@@ -1,0 +1,11 @@
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon {
+  color: yellow;
+  width: 40px;
+  height: 40px;
+}
