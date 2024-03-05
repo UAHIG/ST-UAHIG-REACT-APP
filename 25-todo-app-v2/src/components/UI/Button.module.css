@@ -1,0 +1,20 @@
+.button {
+  margin-left: 20px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  background-color: bisque;
+  border-radius: 10px;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: rgb(240, 240, 155);
+}
+
+.button:disabled {
+  cursor: unset;
+  background-color: #112d48;
+  color: rgb(84, 84, 79);
+}
