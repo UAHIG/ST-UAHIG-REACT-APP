@@ -1,6 +1,6 @@
 import "./BookList.css"
 import { useSelector, useDispatch } from "react-redux"
-import { deleteBook, toggleFavorite } from "../../redux/books/actionCreators"
+import { deleteBook, toggleFavorite, selectBooks } from "../../redux/slices/booksSlice"
 import { BsBookmarkStar, BsBookmarkStarFill } from "react-icons/bs"
 import {
   selectTitleFilter,
@@ -8,8 +8,10 @@ import {
   selectOnlyFavoriteFilter,
 } from "../../redux/slices/filterSlice"
 
+
+
 function BookList() {
-  const books = useSelector((state) => state.books)
+  const books = useSelector(selectBooks)
   const titleFilter = useSelector(selectTitleFilter)
   const authorFilter = useSelector(selectAuthorFilter)
   const onlyFavoriteFilter = useSelector(selectOnlyFavoriteFilter)
@@ -37,7 +39,6 @@ function BookList() {
   const highlightMatch = (text, filter) => {
     if (!filter) return text
     const regex = new RegExp(`(${filter})`, "gi")
-    console.log(text.split(regex))
     return text.split(regex).map((substring, i) => {
       if (substring.toLowerCase() === filter.toLowerCase()) {
         return (
