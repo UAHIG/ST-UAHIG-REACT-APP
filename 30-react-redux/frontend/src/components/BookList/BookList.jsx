@@ -64,7 +64,7 @@ function BookList() {
                 {/* до подсветки  */}
                 {/* {++i}. "{book.title}" by:<strong> {book.author}</strong> */}
                 {++i}. "{highlightMatch(book.title, titleFilter)}" by:
-                <strong> {highlightMatch(book.author, authorFilter)}</strong>
+                <strong> {highlightMatch(book.author, authorFilter)}</strong>  - <em><sup>({book.source})</sup></em>
               </div>
               <div className='book-actions'>
                 <span onClick={() => handleToggleFavorite(book.id)}>
