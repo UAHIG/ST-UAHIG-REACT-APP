@@ -1,14 +1,16 @@
 import "./BookList.css"
 import { useSelector, useDispatch } from "react-redux"
-import { deleteBook, toggleFavorite, selectBooks } from "../../redux/slices/booksSlice"
+import {
+  deleteBook,
+  toggleFavorite,
+  selectBooks,
+} from "../../redux/slices/booksSlice"
 import { BsBookmarkStar, BsBookmarkStarFill } from "react-icons/bs"
 import {
   selectTitleFilter,
   selectAuthorFilter,
   selectOnlyFavoriteFilter,
 } from "../../redux/slices/filterSlice"
-
-
 
 function BookList() {
   const books = useSelector(selectBooks)
@@ -47,7 +49,7 @@ function BookList() {
           </span>
         )
       }
-      return substring;
+      return substring
     })
   }
 
@@ -63,8 +65,15 @@ function BookList() {
               <div className='book-info'>
                 {/* до подсветки  */}
                 {/* {++i}. "{book.title}" by:<strong> {book.author}</strong> */}
-                {++i}. "{highlightMatch(book.title, titleFilter)}" by:
-                <strong> {highlightMatch(book.author, authorFilter)}</strong>  - <em><sup>({book.source})</sup></em>
+                {++i}. <u>Year {book.year}</u>  "
+                {highlightMatch(book.title, titleFilter)}" by:
+                <strong>
+                  {" "}
+                  {highlightMatch(book.author, authorFilter)}
+                </strong> -{" "}
+                <em>
+                  <sup>({book.source})</sup>
+                </em>
               </div>
               <div className='book-actions'>
                 <span onClick={() => handleToggleFavorite(book.id)}>
