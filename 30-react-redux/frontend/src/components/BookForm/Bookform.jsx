@@ -4,6 +4,7 @@ import { useState } from "react"
 import { addBook } from "../../redux/slices/booksSlice"
 import booksData from "../../data/books.json"
 import createBookWithID from "../../utils/createBookWithID"
+import axios from "axios"
 
 function Bookform() {
   const [title, setTitle] = useState("")
@@ -22,11 +23,21 @@ function Bookform() {
     e.preventDefault()
     //dispatch action
     if (title && author) {
-      const book = createBookWithID({title, author})
-
-      dispatch(addBook(book))
+      dispatch(addBook(createBookWithID({ title, author })))
       setTitle("")
       setAuthor("")
+    }
+  }
+
+  const handdleAddRandomBookViaApi = async () => {
+    try {
+      const res = await axios.get("http://localhost:4000/random-book")
+      console.log(res)
+      if (res?.data?.title && res?.data?.author) {
+        dispatch(addBook(createBookWithID(res.data)))
+      }
+    } catch (error) {
+      console.log("Щибочку")
     }
   }
 
@@ -54,7 +65,10 @@ function Bookform() {
         </div>
         <button type='submit'>Add book</button>
         <button type='button' onClick={handleAddRanomBook}>
-          Add Random book
+          Add Random
+        </button>
+        <button type='buttton' onClick={handdleAddRandomBookViaApi}>
+          Add Random via API
         </button>
       </form>
     </div>
