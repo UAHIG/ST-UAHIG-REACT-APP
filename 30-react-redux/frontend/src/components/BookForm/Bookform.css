@@ -32,6 +32,10 @@
   background-color: #0056b3;
 }
 
+.book-form button:disabled {
+  background-color: #a5afba;
+}
+
 .book-form .spinner {
   animation: spinner 1s infinite linear;
   margin-left: 10px;

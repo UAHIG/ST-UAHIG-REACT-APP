@@ -1,18 +1,28 @@
-const express = require('express');
-const cors = require('cors') 
-const booksData = require('./data/books.json')
+const express = require("express")
+const cors = require("cors")
+const booksData = require("./data/books.json")
 
-const app = express();
-app.use(cors());
+const app = express()
+app.use(cors())
 
+function getRandomBook() {
+  const randomIndex = Math.floor(Math.random() * booksData.length)
+  const randomBook = booksData[randomIndex]
+  return randomBook
+}
 
-app.get('/random-book', function (req, res) {
-  const randomIndex = Math.floor(Math.random() * booksData.length);
-  const randomBook = booksData[randomIndex];
-  res.json(randomBook);
-});
+app.get("/random-book", function (req, res) {
+  res.json(getRandomBook())
+})
 
-const port = process.env.PORT || 4000;
+// создали искусственную задержку для демонстрации эффекта
+app.get("/random-book-delayed", function (req, res) {
+  setTimeout(() => {
+    res.json(getRandomBook())
+  }, 3000);
+})
+
+const port = process.env.PORT || 4000
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`)
