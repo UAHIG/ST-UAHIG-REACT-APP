@@ -1,7 +1,7 @@
 import "./Bookform.css"
 import { useDispatch } from "react-redux"
 import { useState } from "react"
-import { addBook, thunkFunction } from "../../redux/slices/booksSlice"
+import { addBook, fetchBook } from "../../redux/slices/booksSlice"
 import booksData from "../../data/books.json"
 import createBookWithID from "../../utils/createBookWithID"
 
@@ -29,7 +29,7 @@ function Bookform() {
   }
 
   const handdleAddRandomBookViaApi = () => {
-    dispatch(thunkFunction)
+    dispatch(fetchBook())
   }
 
   return (
