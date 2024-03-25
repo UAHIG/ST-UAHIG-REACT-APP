@@ -11,7 +11,7 @@ const errorSlice = createSlice({
     },
     clearError: () => {
       return initialState
-    }
+    } 
   }
 })
 
