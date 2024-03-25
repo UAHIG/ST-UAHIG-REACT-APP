@@ -27,12 +27,12 @@ function Bookform() {
       setTitle("")
       setAuthor("")
     } else {
-      dispatch(setError('You must fill title and author'))
+      dispatch(setError("You must fill title and author"))
     }
   }
 
   const handdleAddRandomBookViaApi = () => {
-    dispatch(fetchBook())
+    dispatch(fetchBook("http://localhost:4000/random-book"))
   }
 
   return (
@@ -61,10 +61,10 @@ function Bookform() {
         <button type='button' onClick={handleAddRanomBook}>
           Add Random
         </button>
-        <button type='buttton' onClick={handdleAddRandomBookViaApi}>
-          Add Random via API
-        </button>
       </form>
+      <button type='buttton' onClick={handdleAddRandomBookViaApi}>
+        Add Random via API
+      </button>
     </div>
   )
 }
